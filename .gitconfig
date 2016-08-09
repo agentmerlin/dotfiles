@@ -1,0 +1,25 @@
+[user]
+	name = DJ Sprouse
+	email = daniel.sprouse@nwea.org
+[alias]
+	st = status
+	ci = commit -v
+	lg1 = log --graph --abbrev-commit --decorate --date=relative --all --simplify-by-decoration --full-history --simplify-merges --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	br = branch --all
+	nuke = reset HEAD --hard
+	co = checkout
+	cb = "!f() { git co -b  $@ origin/$@; }; f"
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
+	publish = "!git push -u origin $(git branch-name)"
+	unpublish = "!git push origin :$(git branch-name)"
+	cleanup = "!f() { git co master && git remote prune origin && git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D; }; f"
+[core]
+	autocrlf = input
+[push]
+	default = simple
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true
+[config]
