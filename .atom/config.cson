@@ -1,0 +1,22 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "3ee48168-3c74-438f-ba92-92ca0192a219"
+    js:
+      end_with_newline: true
+      space_after_anon_function: true
+  core:
+    excludeVcsIgnoredPaths: false
+  editor:
+    fontSize: 13
+    invisibles: {}
+    softTabs: false
+    tabLength: 4
+    zoomFontWhenCtrlScrolling: true
+  "exception-reporting":
+    userId: "3fa71ad6-1d77-3a84-44d3-54c3d0b95ccf"
+  welcome:
+    showOnStartup: false
+".diff.source":
+  editor:
+    tabLength: 4
