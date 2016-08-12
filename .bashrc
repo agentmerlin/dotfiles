@@ -29,9 +29,13 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
+#----------------------
+# ENVIRONMENT VARIABLES
+#----------------------
 export PATH=/usr/local/bin:$PATH:/usr/local/share/npm/bin
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home
 export MAVEN_OPTS=-Xmx1024m
+export GIT_EDITOR=vim
 
 
 # ls colors
@@ -42,7 +46,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 # Personnal Aliases
 #-------------------
 
-#Chrome For Mac
+# Chrome For Mac
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 
 alias rm='rm -i'
@@ -66,6 +70,7 @@ alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 #-------------------------------------------------------------
 # Add colors for filetype and  human-readable sizes by default on 'ls':
 alias ls='ls -h'
+#alias ls='ls -h --color'   #  Linux specific coloring
 alias lx='ls -lXB'         #  Sort by extension.
 alias lk='ls -lSr'         #  Sort by size, biggest last.
 alias lt='ls -ltr'         #  Sort by date, most recent last.
