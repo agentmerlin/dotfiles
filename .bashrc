@@ -29,6 +29,20 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
+#------------------
+# MAN PAGE COLORING
+#------------------
+man() {
+    env \
+        LESS_TERMCAP_md=$(printf "\e[1;36m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;40;92m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+            man "$@"
+}
+
 #----------------------
 # ENVIRONMENT VARIABLES
 #----------------------
@@ -46,7 +60,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 # Personnal Aliases
 #-------------------
 
-# Chrome For Mac
+#Chrome For Mac
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 
 alias rm='rm -i'
@@ -69,8 +83,8 @@ alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 # The 'ls' family (this assumes you use a recent GNU ls).
 #-------------------------------------------------------------
 # Add colors for filetype and  human-readable sizes by default on 'ls':
-alias ls='ls -h'
-#alias ls='ls -h --color'   #  Linux specific coloring
+#alias ls='ls -h'
+alias ls='ls -h --color'   #  Linux specific coloring
 alias lx='ls -lXB'         #  Sort by extension.
 alias lk='ls -lSr'         #  Sort by size, biggest last.
 alias lt='ls -ltr'         #  Sort by date, most recent last.
